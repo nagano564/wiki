@@ -1,9 +1,9 @@
-require 'random_data'
+
 
 20.times do
   Wiki.create!(
-    title: RandomData.random_sentence,
-    body:  RandomData.random_paragraph
+    title: Faker::Lorem.sentence,
+    body:  Faker::Lorem.paragraph(2)
   )
 end
 wikis = Wiki.all
