@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  let(:wikip) { Wikip.create!(title: "New Post Title", body: "New Post Body") }
-  let(:comment) { Comment.create!(body: 'Comment Body', wikip: wikip) }
+  let(:wiki) { Wiki.create!(title: "New Post Title", body: "New Post Body") }
+  let(:comment) { Comment.create!(body: 'Comment Body', wiki: wiki) }
 
   describe "attributes" do
     it "has a body attribute" do

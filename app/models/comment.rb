@@ -1,3 +1,3 @@
 class Comment < ActiveRecord::Base
-  belongs_to :wikip
+  belongs_to :wiki
 end

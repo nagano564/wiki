@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :wikip do
+  factory :wiki do
     title "MyString"
     body "MyText"
     private false

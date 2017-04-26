@@ -1,6 +1,6 @@
-class CreateWikips < ActiveRecord::Migration
+class CreateWikis < ActiveRecord::Migration
   def change
-    create_table :wikips do |t|
+    create_table :wikis do |t|
       t.string :title
       t.text :body
       t.boolean :private
