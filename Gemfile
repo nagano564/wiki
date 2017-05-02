@@ -12,6 +12,8 @@ source 'https://rubygems.org'
    gem 'sqlite3'
    gem 'web-console', '~> 2.0'
  end
+
+ gem 'pundit'
  gem 'faker'
  gem 'sass-rails', '~> 5.0'
  gem 'uglifier', '>= 1.3.0'
@@ -27,7 +29,6 @@ source 'https://rubygems.org'
    gem 'spring'
    gem 'rspec-rails'
    gem 'shoulda'
-   gem 'faker'
    gem 'factory_girl_rails'
    gem 'pry-rails'
  end
