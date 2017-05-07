@@ -1,4 +1,7 @@
+<h4><center><%= link_to "Create New Wiki", new_wiki_path, { class:"btn btn-warning btn-large"} %><center></h4>
+
 <h1><center>All Wikis </center></h1>
+<center>
 <% @wikis.each do |post| %>
   <div class="media">
     <div class="media-body">
@@ -7,4 +10,6 @@
       </h4>
     </div>
   </div>
+
 <% end %>
+</center>
