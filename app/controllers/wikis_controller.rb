@@ -2,6 +2,7 @@ class WikisController < ApplicationController
 
   def index
     @wikis = Wiki.all
+    @public_wikis = Wiki.where(private: false)
   end
 
   def show
@@ -10,6 +11,10 @@ class WikisController < ApplicationController
 
   def new
     @wiki = Wiki.new
+  end
+
+  def wiki
+    @wikis = Wiki.where(private: true)
   end
 
   def create
