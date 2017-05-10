@@ -13,6 +13,7 @@ source 'https://rubygems.org'
    gem 'web-console', '~> 2.0'
  end
 
+ gem 'redcarpet'
  gem 'pundit'
  gem 'faker'
  gem 'sass-rails', '~> 5.0'
@@ -24,7 +25,7 @@ source 'https://rubygems.org'
  gem 'devise'
  gem 'bootstrap-sass'
  gem 'stripe'
- 
+
  group :development, :test do
    gem 'byebug'
    gem 'spring'
