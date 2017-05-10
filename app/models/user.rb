@@ -6,7 +6,10 @@ class User < ActiveRecord::Base
 
 
   before_save { self.role ||= :standard }
-
+  has_many :wikis
   enum role: [:standard, :admin, :premium]
-
+  def downgrade!
+    update_attributes(role: 'standard', subscription_id: nil)
+    wikis.update_all(private: false)
+  end
 end

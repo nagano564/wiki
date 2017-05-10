@@ -3,31 +3,9 @@
 <h1><center>All Wikis </center></h1>
 <center>
 
-  # if current_user.admin? || current_user.premium? see all
-  # else see only public
-
-<% if current_user.admin? || current_user.premium? && @wiki.private? %>
-  <% @wikis.each do |wiki| %>
-    <div class="media">
-      <div class="media-body">
-        <h4 class="media-heading">
-          <% link_to wiki.title, post %>
-        </h4>
-      </div>
-    </div>
-
+<% if current_user.admin? || current_user.premium? %>
+  <%= render partial: 'wiki', collection: @private_wikis %>
 <% end %>
 
-
-  <% @public_wikis.each do |wiki| %>
-    <div class="media">
-      <div class="media-body">
-        <h4 class="media-heading">
-          <%= link_to wiki.title, post %>
-        </h4>
-      </div>
-    </div>
-
-  <% end %>
-<% end %>
+<%= render partial: 'wiki', collection: @public_wikis %>
 </center>

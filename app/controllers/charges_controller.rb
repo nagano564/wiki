@@ -44,7 +44,7 @@ class ChargesController < ApplicationController
 
     subscription = Stripe::Subscription.retrieve(current_user.subscription_id)
     subscription.delete(:at_period_end => true)
-    current_user.update_attributes(role: 'standard', subscription_id: nil)
+    current_user.downgrade!
 
     flash[:notice] = "You've cancelled your premium subscription, #{current_user.email}!"
     redirect_to wikis_path

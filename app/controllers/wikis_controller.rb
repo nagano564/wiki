@@ -1,7 +1,9 @@
 class WikisController < ApplicationController
 
   def index
-    @wikis = Wiki.all
+    if current_user.admin? || current_user.premium?
+      @private_wikis = Wiki.where(private: true)
+    end
     @public_wikis = Wiki.where(private: false)
   end
 
@@ -26,7 +28,7 @@ class WikisController < ApplicationController
       flash[:notice] = "Wiki was saved!!!"
       redirect_to @wiki
     else
-      flash.now[:alert] = "There was an error saving the post. Please try again."
+      flash.now[:alert] = "There was an error saving the wiki. Please try again. #{@wiki.errors.full_messages}"
       render :new
     end
   end
