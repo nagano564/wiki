@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'collaborator/index'
+
+  get 'collaborator/show'
+
+  get 'collaborator/new'
+
+  get 'collaborator/edit'
+
   resources :wikis
   resources :charges, only: [:new, :create] do
     collection do
