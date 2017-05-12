@@ -1,4 +1,4 @@
-<% if current_user.admin? || current_user.premium? %>
+
   <%= form_for @wiki do |x| %>
     <div class="form-group">
       <%= x.label :private, class: 'checkbox' do %>
@@ -6,4 +6,3 @@
       <% end %>
   <% end %>
     </div>
-<% end %>

@@ -14,4 +14,8 @@
          <%= f.submit "Save", class: 'btn btn-success' %>
        </div>
      <% end %>
+     <% if current_user.admin? || current_user.premium? %>
+       <%= render "form" %>
+       <%= render partial: "collaborators" %>
+     <% end %>
    </div>

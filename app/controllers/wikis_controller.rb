@@ -4,7 +4,7 @@ class WikisController < ApplicationController
     if current_user.admin? || current_user.premium?
       @private_wikis = Wiki.where(private: true)
     end
-    @public_wikis = Wiki.where(private: false)
+      @public_wikis = Wiki.where(private: false)
   end
 
   def show
@@ -13,6 +13,7 @@ class WikisController < ApplicationController
 
   def new
     @wiki = Wiki.new
+    @users = User.all
   end
 
   def wiki
@@ -35,6 +36,8 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    @collaborators = @wiki.collaborate_users
+    @users = User.all - @collaborators
   end
 
   def update
@@ -61,5 +64,17 @@ class WikisController < ApplicationController
       flash.now[:alert] =j "There was an error deleting the post."
       render :show
     end
+  end
+
+  def add_collaborator
+    @wiki = Wiki.find(params[:id])
+    @wiki.collaborate_users << User.find(params[:user_id])
+    redirect_to :back
+  end
+
+  def remove_collaborator
+    @wiki = Wiki.find(params[:id])
+    @wiki.collaborate_users.delete(User.find(params[:user_id]))
+    redirect_to :back
   end
 end

@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-  get 'collaborator/index'
 
-  get 'collaborator/show'
+  resources :wikis do
+    member do
+      put 'add_collaborator'
+      delete 'remove_collaborator'
+    end
+  end
 
-  get 'collaborator/new'
-
-  get 'collaborator/edit'
-
-  resources :wikis
   resources :charges, only: [:new, :create] do
     collection do
       delete :destroy

@@ -18,6 +18,8 @@
     <div class="form-group">
       <%= x.submit "Save", class: 'btn btn-success' %>
     </div>
-    <%= render "form" %>
+    <% if current_user.admin? || current_user.premium? %>
+      <%= render "form" %>
+    <% end %>
   <% end %>
 </div>
