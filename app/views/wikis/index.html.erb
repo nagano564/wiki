@@ -3,9 +3,9 @@
 <h1><center>All Wikis </center></h1>
 <center>
 
-<% if current_user.admin? || current_user.premium? %>
+<% if current_user.admin? || current_user.premium?  %>
   <%= render partial: 'wiki', collection: @private_wikis %>
 <% end %>
 
-<%= render partial: 'wiki', collection: @public_wikis %>
+<%= render partial: 'wiki', collection: @public_wikis + @collaborate_wikis %>
 </center>

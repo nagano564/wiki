@@ -4,6 +4,7 @@ class WikisController < ApplicationController
     if current_user.admin? || current_user.premium?
       @private_wikis = Wiki.where(private: true)
     end
+      @collaborate_wikis = current_user.collaborate_wikis
       @public_wikis = Wiki.where(private: false)
   end
 
